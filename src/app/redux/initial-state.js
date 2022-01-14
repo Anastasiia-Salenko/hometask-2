@@ -1,4 +1,6 @@
+import { prepopulatedNotes } from "./prepopulated-notes";
+
 export const initialState = {
-  notes: [],
+  notes: prepopulatedNotes,
   filter: 'active',
 };
