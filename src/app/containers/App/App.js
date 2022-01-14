@@ -1,4 +1,3 @@
-import './App.css';
 import { NoteListTable } from '../../../features/display-notes/components/NoteListTable';
 
 export function App() {
