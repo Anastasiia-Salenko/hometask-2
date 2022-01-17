@@ -5,7 +5,6 @@ import { getNotesToDisplay } from "../../selectors/getNotesToDisplay";
 export const NoteListTable = () => {
   const notes = useSelector(getNotesToDisplay);
 
-
   return (
     <div>
       <table>
@@ -35,5 +34,5 @@ export const NoteListTable = () => {
         </tbody>
       </table>
     </div>
-  )
+  );
 };

@@ -1,5 +1,5 @@
 import { initialState } from "./initial-state";
-import { actionHandlers as createNoteActionHandlers } from '../../features/create-note/redux/action-handlers'
+import { actionHandlers as createNoteActionHandlers } from "../../features/create-note/redux/action-handlers";
 
 const actionHandlers = {
   ...createNoteActionHandlers,
