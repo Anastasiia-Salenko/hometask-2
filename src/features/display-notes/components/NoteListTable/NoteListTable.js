@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getNotesToDisplay } from "../../selectors/getNotesToDisplay";
+import { Note } from "../Note/Note";
 
 export const NoteListTable = () => {
   const notes = useSelector(getNotesToDisplay);
@@ -19,17 +20,7 @@ export const NoteListTable = () => {
         </thead>
         <tbody>
           {notes.map((item) => (
-            <tr key={item.id}>
-              <td>{item.content}</td>
-              <td>{item.category}</td>
-              <td>{item.created}</td>
-              <td>{item.dates}</td>
-              <td>
-                <button>edit</button>
-                <button>archive</button>
-                <button>remove</button>
-              </td>
-            </tr>
+            <Note note={item} key={item.id} />
           ))}
         </tbody>
       </table>
