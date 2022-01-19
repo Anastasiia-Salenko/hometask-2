@@ -1,11 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { changeNoteContent } from "../../redux/action-creators";
+import {
+  changeNoteContent,
+  saveNoteButtonClicked,
+} from "../../redux/action-creators";
 
 export const NoteEditor = ({ note }) => {
   const dispatch = useDispatch();
 
-  const handleChange = (event) => {
+  const handleChangeContent = (event) => {
     dispatch(
       changeNoteContent({
         id: note.id,
@@ -14,16 +17,24 @@ export const NoteEditor = ({ note }) => {
     );
   };
 
+  const handleSaveClicked = () => {
+    dispatch(
+      saveNoteButtonClicked({
+        id: note.id,
+      })
+    );
+  };
+
   return (
     <tr>
       <td>
-        <input value={note.content} onChange={handleChange} />
+        <input value={note.content} onChange={handleChangeContent} />
       </td>
       <td>{note.category}</td>
       <td>{note.created}</td>
       <td>{note.dates}</td>
       <td>
-        <button>save</button>
+        <button onClick={handleSaveClicked}>save</button>
         <button>cancel</button>
       </td>
     </tr>

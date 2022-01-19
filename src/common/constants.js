@@ -3,3 +3,5 @@ export const NOTE_CATEGORIES = {
   IDEA: "IDEA",
   RANDOM_THOUGHT: "RANDOM_THOUGHT",
 };
+
+export const DATE_FORMAT = "dd/MM/yyyy";
