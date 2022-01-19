@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getNotesToDisplay } from "../../selectors/getNotesToDisplay";
-import { Note } from "../Note/Note";
+import { Note } from "../../../note-item/components/Note";
 
 export const NoteListTable = () => {
   const notes = useSelector(getNotesToDisplay);
