@@ -1,5 +1,5 @@
 import {
-  CHANGE_NOTE_CONTENT,
+  NOTE_CONTENT_CHANGED,
   EDIT_NOTE_BUTTON_CLICKED,
   SAVE_NOTE_BUTTON_CLICKED,
 } from "./constants";
@@ -22,7 +22,7 @@ const changeNote = (itemReducer) => {
 };
 
 export const actionHandlers = {
-  [CHANGE_NOTE_CONTENT]: changeNote((note, action) => ({
+  [NOTE_CONTENT_CHANGED]: changeNote((note, action) => ({
     ...note,
     content: action.payload.content,
   })),

@@ -1,12 +1,12 @@
 import { formatDate } from "../../../utils/formatDate";
 import {
-  CHANGE_NOTE_CONTENT,
+  NOTE_CONTENT_CHANGED,
   EDIT_NOTE_BUTTON_CLICKED,
   SAVE_NOTE_BUTTON_CLICKED,
 } from "./constants";
 
-export const changeNoteContent = ({ id, content }) => ({
-  type: CHANGE_NOTE_CONTENT,
+export const noteContentChanged = ({ id, content }) => ({
+  type: NOTE_CONTENT_CHANGED,
   payload: { id, content },
 });
 
