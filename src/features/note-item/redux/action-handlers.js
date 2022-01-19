@@ -1,4 +1,8 @@
-import { CHANGE_NOTE_CONTENT, SAVE_NOTE_BUTTON_CLICKED } from "./constants";
+import {
+  CHANGE_NOTE_CONTENT,
+  EDIT_NOTE_BUTTON_CLICKED,
+  SAVE_NOTE_BUTTON_CLICKED,
+} from "./constants";
 
 export const actionHandlers = {
   [CHANGE_NOTE_CONTENT]: (state, action) => {
@@ -25,6 +29,25 @@ export const actionHandlers = {
           ...item,
           isDraft: false,
           created: action.payload.date,
+        };
+      }
+
+      return item;
+    });
+
+    return {
+      ...state,
+      notes,
+    };
+  },
+  [EDIT_NOTE_BUTTON_CLICKED]: (state, action) => {
+    const notes = state.notes.map((item) => {
+      if (item.id === action.payload.id) {
+        return {
+          ...item,
+          contentOriginal: item.content,
+          categoryOriginal: item.category,
+          isEditing: true,
         };
       }
 
