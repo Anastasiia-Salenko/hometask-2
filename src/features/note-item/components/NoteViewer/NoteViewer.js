@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { editNoteButtonClicked } from "../../redux/action-creators";
+import {
+  editNoteButtonClicked,
+  removeNoteButtonClicked,
+} from "../../redux/action-creators";
 
 export const NoteViewer = ({ note }) => {
   const dispatch = useDispatch();
@@ -8,6 +11,14 @@ export const NoteViewer = ({ note }) => {
   const handleEditClicked = () => {
     dispatch(
       editNoteButtonClicked({
+        id: note.id,
+      })
+    );
+  };
+
+  const handleRemoveClicked = () => {
+    dispatch(
+      removeNoteButtonClicked({
         id: note.id,
       })
     );
@@ -22,7 +33,7 @@ export const NoteViewer = ({ note }) => {
       <td>
         <button onClick={handleEditClicked}>edit</button>
         <button>archive</button>
-        <button>remove</button>
+        <button onClick={handleRemoveClicked}>remove</button>
       </td>
     </tr>
   );
