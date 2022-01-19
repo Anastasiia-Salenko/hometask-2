@@ -28,7 +28,8 @@ export const actionHandlers = {
         return {
           ...item,
           isDraft: false,
-          created: action.payload.date,
+          isEditing: false,
+          created: item.created || action.payload.date,
         };
       }
 
