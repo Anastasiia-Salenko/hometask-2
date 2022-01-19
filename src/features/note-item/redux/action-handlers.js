@@ -24,6 +24,15 @@ const changeNote = (itemReducer) => {
   };
 };
 
+const removeNote = (state, action) => {
+  const notes = state.notes.filter((item) => item.id !== action.payload.id);
+
+  return {
+    ...state,
+    notes,
+  };
+};
+
 export const actionHandlers = {
   [NOTE_CONTENT_CHANGED]: changeNote((note, action) => ({
     ...note,
@@ -41,18 +50,20 @@ export const actionHandlers = {
     categoryOriginal: note.category,
     isEditing: true,
   })),
-  [CANCEL_EDIT_NOTE_BUTTON_CLICKED]: changeNote((note) => ({
-    ...note,
-    content: note.contentOriginal,
-    category: note.categoryOriginal,
-    isEditing: false,
-  })),
-  [REMOVE_NOTE_BUTTON_CLICKED]: (state, action) => {
-    const notes = state.notes.filter((item) => item.id !== action.payload.id);
+  [CANCEL_EDIT_NOTE_BUTTON_CLICKED]: (state, action) => {
+    const existingNote = state.notes.find(
+      (item) => item.id === action.payload.id
+    );
+    const reducer = existingNote.isDraft
+      ? removeNote
+      : changeNote((note) => ({
+          ...note,
+          content: note.contentOriginal,
+          category: note.categoryOriginal,
+          isEditing: false,
+        }));
 
-    return {
-      ...state,
-      notes,
-    };
+    return reducer(state, action);
   },
+  [REMOVE_NOTE_BUTTON_CLICKED]: removeNote,
 };
