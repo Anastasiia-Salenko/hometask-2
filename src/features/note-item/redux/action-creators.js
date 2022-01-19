@@ -5,6 +5,8 @@ import {
   SAVE_NOTE_BUTTON_CLICKED,
   CANCEL_EDIT_NOTE_BUTTON_CLICKED,
   REMOVE_NOTE_BUTTON_CLICKED,
+  ARCHIVE_NOTE_BUTTON_CLICKED,
+  UNARCHIVE_NOTE_BUTTON_CLICKED,
 } from "./constants";
 
 export const noteContentChanged = ({ id, content }) => ({
@@ -29,5 +31,15 @@ export const cancelEditNoteButtonClicked = ({ id }) => ({
 
 export const removeNoteButtonClicked = ({ id }) => ({
   type: REMOVE_NOTE_BUTTON_CLICKED,
+  payload: { id },
+});
+
+export const archiveNoteButtonClicked = ({ id }) => ({
+  type: ARCHIVE_NOTE_BUTTON_CLICKED,
+  payload: { id },
+});
+
+export const unarchiveNoteButtonClicked = ({ id }) => ({
+  type: UNARCHIVE_NOTE_BUTTON_CLICKED,
   payload: { id },
 });

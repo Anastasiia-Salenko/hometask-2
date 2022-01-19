@@ -1,1 +1,2 @@
-export const getNotesToDisplay = (state) => state.notes;
+export const getNotesToDisplay = (state) =>
+  state.notes.filter((item) => !item.isArchived);

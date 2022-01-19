@@ -1,10 +1,11 @@
-import { cancelEditNoteButtonClicked } from "./action-creators";
 import {
   NOTE_CONTENT_CHANGED,
   EDIT_NOTE_BUTTON_CLICKED,
   SAVE_NOTE_BUTTON_CLICKED,
   CANCEL_EDIT_NOTE_BUTTON_CLICKED,
   REMOVE_NOTE_BUTTON_CLICKED,
+  ARCHIVE_NOTE_BUTTON_CLICKED,
+  UNARCHIVE_NOTE_BUTTON_CLICKED,
 } from "./constants";
 
 const changeNote = (itemReducer) => {
@@ -66,4 +67,12 @@ export const actionHandlers = {
     return reducer(state, action);
   },
   [REMOVE_NOTE_BUTTON_CLICKED]: removeNote,
+  [ARCHIVE_NOTE_BUTTON_CLICKED]: changeNote((note) => ({
+    ...note,
+    isArchived: true,
+  })),
+  [UNARCHIVE_NOTE_BUTTON_CLICKED]: changeNote((note) => ({
+    ...note,
+    isArchived: false,
+  })),
 };

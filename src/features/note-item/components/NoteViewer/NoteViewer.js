@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
+  archiveNoteButtonClicked,
   editNoteButtonClicked,
   removeNoteButtonClicked,
 } from "../../redux/action-creators";
@@ -24,6 +25,14 @@ export const NoteViewer = ({ note }) => {
     );
   };
 
+  const handleArchiveClicked = () => {
+    dispatch(
+      archiveNoteButtonClicked({
+        id: note.id,
+      })
+    );
+  };
+
   return (
     <tr>
       <td>{note.content}</td>
@@ -32,7 +41,7 @@ export const NoteViewer = ({ note }) => {
       <td>{note.dates}</td>
       <td>
         <button onClick={handleEditClicked}>edit</button>
-        <button>archive</button>
+        <button onClick={handleArchiveClicked}>archive</button>
         <button onClick={handleRemoveClicked}>remove</button>
       </td>
     </tr>
