@@ -1,7 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { changeNoteContent } from "../../redux/action-creators";
 
 export const NoteEditor = ({ note }) => {
-  const handleChange = () => {};
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    dispatch(
+      changeNoteContent({
+        id: note.id,
+        content: event.target.value,
+      })
+    );
+  };
 
   return (
     <tr>
