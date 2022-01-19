@@ -3,6 +3,7 @@ import {
   NOTE_CONTENT_CHANGED,
   EDIT_NOTE_BUTTON_CLICKED,
   SAVE_NOTE_BUTTON_CLICKED,
+  CANCEL_EDIT_NOTE_BUTTON_CLICKED,
 } from "./constants";
 
 export const noteContentChanged = ({ id, content }) => ({
@@ -17,5 +18,10 @@ export const saveNoteButtonClicked = ({ id }) => ({
 
 export const editNoteButtonClicked = ({ id }) => ({
   type: EDIT_NOTE_BUTTON_CLICKED,
+  payload: { id },
+});
+
+export const cancelEditNoteButtonClicked = ({ id }) => ({
+  type: CANCEL_EDIT_NOTE_BUTTON_CLICKED,
   payload: { id },
 });

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import {
+  cancelEditNoteButtonClicked,
   noteContentChanged,
   saveNoteButtonClicked,
 } from "../../redux/action-creators";
@@ -25,6 +26,14 @@ export const NoteEditor = ({ note }) => {
     );
   };
 
+  const handleCancelClicked = () => {
+    dispatch(
+      cancelEditNoteButtonClicked({
+        id: note.id,
+      })
+    );
+  };
+
   return (
     <tr>
       <td>
@@ -35,7 +44,7 @@ export const NoteEditor = ({ note }) => {
       <td>{note.dates}</td>
       <td>
         <button onClick={handleSaveClicked}>save</button>
-        <button>cancel</button>
+        <button onClick={handleCancelClicked}>cancel</button>
       </td>
     </tr>
   );

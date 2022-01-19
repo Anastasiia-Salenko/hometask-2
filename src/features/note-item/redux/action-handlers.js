@@ -2,6 +2,7 @@ import {
   NOTE_CONTENT_CHANGED,
   EDIT_NOTE_BUTTON_CLICKED,
   SAVE_NOTE_BUTTON_CLICKED,
+  CANCEL_EDIT_NOTE_BUTTON_CLICKED,
 } from "./constants";
 
 const changeNote = (itemReducer) => {
@@ -37,5 +38,11 @@ export const actionHandlers = {
     contentOriginal: note.content,
     categoryOriginal: note.category,
     isEditing: true,
+  })),
+  [CANCEL_EDIT_NOTE_BUTTON_CLICKED]: changeNote((note) => ({
+    ...note,
+    content: note.contentOriginal,
+    category: note.categoryOriginal,
+    isEditing: false,
   })),
 };
