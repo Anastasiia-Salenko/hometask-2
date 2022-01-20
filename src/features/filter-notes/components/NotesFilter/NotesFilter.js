@@ -4,8 +4,8 @@ import {
   showActiveNotesButtonClicked,
   showArchivedNotesButtonClicked,
 } from "../../redux/action-creators";
-import { getIsActiveFilterApplied } from "../../selectors/getIsActiveFilterApplied";
-import { getIsArchivedFilterApplied } from "../../selectors/getIsArchivedFilterApplied";
+import { getIsActiveFilterApplied } from "../../../../common/selectors/getIsActiveFilterApplied";
+import { getIsArchivedFilterApplied } from "../../../../common/selectors/getIsArchivedFilterApplied";
 import "./styles.css";
 
 export const NotesFilter = () => {

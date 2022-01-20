@@ -4,6 +4,7 @@ import {
   archiveNoteButtonClicked,
   editNoteButtonClicked,
   removeNoteButtonClicked,
+  unarchiveNoteButtonClicked,
 } from "../../redux/action-creators";
 
 export const NoteViewer = ({ note }) => {
@@ -33,6 +34,14 @@ export const NoteViewer = ({ note }) => {
     );
   };
 
+  const handleUnarchiveClicked = () => {
+    dispatch(
+      unarchiveNoteButtonClicked({
+        id: note.id,
+      })
+    );
+  };
+
   return (
     <tr>
       <td>{note.content}</td>
@@ -41,7 +50,11 @@ export const NoteViewer = ({ note }) => {
       <td>{note.dates}</td>
       <td>
         <button onClick={handleEditClicked}>edit</button>
-        <button onClick={handleArchiveClicked}>archive</button>
+        {note.isArchived ? (
+          <button onClick={handleUnarchiveClicked}>restore</button>
+        ) : (
+          <button onClick={handleArchiveClicked}>archive</button>
+        )}
         <button onClick={handleRemoveClicked}>remove</button>
       </td>
     </tr>
