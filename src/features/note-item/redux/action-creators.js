@@ -7,11 +7,17 @@ import {
   REMOVE_NOTE_BUTTON_CLICKED,
   ARCHIVE_NOTE_BUTTON_CLICKED,
   UNARCHIVE_NOTE_BUTTON_CLICKED,
+  NOTE_CATEGORY_CHANGED,
 } from "./constants";
 
 export const noteContentChanged = ({ id, content }) => ({
   type: NOTE_CONTENT_CHANGED,
   payload: { id, content },
+});
+
+export const noteCategoryChanged = ({ id, category }) => ({
+  type: NOTE_CATEGORY_CHANGED,
+  payload: { id, category },
 });
 
 export const saveNoteButtonClicked = ({ id }) => ({

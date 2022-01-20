@@ -6,6 +6,7 @@ import {
   REMOVE_NOTE_BUTTON_CLICKED,
   ARCHIVE_NOTE_BUTTON_CLICKED,
   UNARCHIVE_NOTE_BUTTON_CLICKED,
+  NOTE_CATEGORY_CHANGED,
 } from "./constants";
 
 const changeNote = (itemReducer) => {
@@ -38,6 +39,10 @@ export const actionHandlers = {
   [NOTE_CONTENT_CHANGED]: changeNote((note, action) => ({
     ...note,
     content: action.payload.content,
+  })),
+  [NOTE_CATEGORY_CHANGED]: changeNote((note, action) => ({
+    ...note,
+    category: action.payload.category,
   })),
   [SAVE_NOTE_BUTTON_CLICKED]: changeNote((note, action) => ({
     ...note,
